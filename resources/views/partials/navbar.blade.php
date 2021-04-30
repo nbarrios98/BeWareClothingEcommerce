@@ -1,8 +1,8 @@
 
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white shadow-sm" style="background: rgb(177,156,217) !important" >
-<a class="navbar-brand" href="{{ route ('homepage.index')}}">
+<a class="navbar-brand" href="{{ route ('shop')}}">
             {{-- <img src="{{url('./images/BeWareLogo.png')}}" alt="BeWare Clothing"> --}}
-            <img src="/images/FinalBeWareLogo.png" alt="bottom logo" style="width:40%">
+            <img src="/images/FinalBeWareLogo.png" alt="bottom logo" style="width:45%">
         </a>
     <div class="container">
 
@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="font-size: 20px">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>
+                    <a class="nav-link" href="{{ route('homepage.index') }}">Shop</a>
                 </li>
                 <!-- Authentication Links -->
                 @guest

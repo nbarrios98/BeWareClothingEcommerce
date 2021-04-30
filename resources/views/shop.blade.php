@@ -1,65 +1,92 @@
 @extends('layouts.app')
 
-@section('content')
-{{-- If successful --}}
-@if(Session::has('success'))
-<div class="row">
-    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
-        <div id="charge-message" class="alert alert-success">
-            {{ Session::get('success') }} 
-        </div>
-    </div>
-@endif
+<link rel="stylesheet" href={{ url('css/homepage.css') }}>
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Lily Script One' rel='stylesheet'>
+
+
+<div class="slogan" >
+    <h1>Be You. Be Different. Wear it with CONFIDENCE.</h1>
+  </div>
+
+<hr style="width: 30%; margin-top: 3%; margin-bottom:3%">
+
+
+<div class="top-image-row" >
+    <img src="/images/menPullover.png" alt="Menpllover" style="width:16%; margin-right:5%">
+    <img src="/images/spaceShirt.jpg" alt="spaceshirt"style="width: 16%">
+    <img src="/images/sweatshirt.jpg" alt="shirt" style="width:15%;margin-left:5%">
 </div>
-    <div class="container" style="margin-top: 80px">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route ('homepage.index')}}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shop</li>
-            </ol>
-        </nav>
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <h4>Products In Our Store</h4>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    @foreach($products as $pro)
-                        <div class="col-lg-3">
-                            <div class="card" style="margin-bottom: 20px; height: auto;">
-                                <img src="/images/{{ $pro->image_path }}"
-                                     class="card-img-top mx-auto"
-                                     style="height: 150px; width: 150px;display: block;"
-                                     alt="{{ $pro->image_path }}"
-                                >
-                                <div class="card-body">
-                                    <a href=""><h6 class="card-title">{{ $pro->name }}</h6></a>
-                                    <p>${{ $pro->price }}</p>
-                                    <form action="{{ route('cart.store') }}" method="POST">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" value="{{ $pro->id }}" id="id" name="id">
-                                        <input type="hidden" value="{{ $pro->name }}" id="name" name="name">
-                                        <input type="hidden" value="{{ $pro->price }}" id="price" name="price">
-                                        <input type="hidden" value="{{ $pro->image_path }}" id="img" name="img">
-                                        <input type="hidden" value="{{ $pro->slug }}" id="slug" name="slug">
-                                        <input type="hidden" value="1" id="quantity" name="quantity">
-                                        <div class="card-footer" style="background-color: white;">
-                                              <div class="row">
-                                                <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
-                                                    <i class="fa fa-shopping-cart"></i> add to cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-@endsection
+
+<div class="shop-now-button" >
+<a href="{{ route ('homepage.index')}}">
+<button class="btn btn-primary btn-lg">Shop Now</button></a>
+</div>
+
+
+<hr style="margin-top: 5%; margin-bottom: 5%; width:100%">
+
+<div class = "about">
+
+<p>About Your Shop</p>
+{{-- look at req doc --}}
+</div>
+<p style="font-family: Spartan; text-align:center; font-size:20px "
+
+>What started as a small boutique shop in Raleigh, North Carolina, is now a full fledged clothing website dedicated <br> to selling clothing of the BeWare brand. BeWare clothing is a streetwear brand founded by Anntoine Annet. And just like how Anntoine <br> promotes his clothing as low cost but high quality, the BeWare website will follow up on that ideal by providing convenience and special <br> offers to members. 
+</p>
+
+<hr style="margin-top: 7%;margin-bottom:4%; width:100%">
+
+{{-- <img src="/images/BeWareLogo.png" alt="Menpllover" style="width;"> --}}
+
+<br>
+
+
+ <table class="right-table">
+
+<tr>
+  <th></th>
+<th>MAIN MENU</th>
+<th>DISCOVER</th>
+<th>FIND US ON</th>
+</tr> 
+<tr>
+  <td></td>
+<td><a href="{{ route ('shop')}}">Home</a></td>
+<td><a href="{{ route ('shop')}}">About Us</a></td>
+<td><a href="{{ route ('shop')}}">FaceBook</a></td>
+</tr>
+<tr>
+  <td></td>
+<td><a href="{{ route ('homepage.index')}}">Shop</a></td>
+<td></td>
+<td><a href="{{ route ('shop')}}">Twitter</a></td>
+</tr>
+<tr>
+  <td></td>
+<td><a href="{{ route ('cart.index')}}">Cart</a></td>
+<td></td>
+<td><a href="{{ route ('shop')}}">Instagram</a></td>
+</tr>
+
+</table> 
+
+<div class="bottom-logo">
+
+  <img src="/images/FinalBeWareLogo.png" alt="bottom logo" style="width: 120px; height: 100px ">
+  <hr style="margin-top: 1%" >
+  </div>
+<br>
+  <div class="bottom-logo-text">
+  <p>Raleigh, North Carolina, USA</p>
+  </div>
+
+  <hr style="margin-top: 3%; margin-bottom:3% width:100%">
+
+  <div class="copyright">
+  
+    <p> &copy;BeWare Clothing </p>
+  
+  </div>
+
